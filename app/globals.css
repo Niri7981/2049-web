@@ -93,7 +93,7 @@ body::before {
   left: 19%;
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(28px, 2.2vw, 35px);
+  font-size: clamp(31px, 2.45vw, 39px);
   font-weight: 400;
   line-height: .98;
   letter-spacing: -.025em;
