@@ -65,7 +65,7 @@ export default function Spirit({
               role="img"
               aria-labelledby={`${id}-title`}
             >
-              <title id={`${id}-title`}>{state === "idle" ? "The 2049 spirit, quietly floating with open eyes" : `The 2049 spirit in its ${state} state`}</title>
+              <title id={`${id}-title`}>{state === "idle" ? "Yosh, quietly floating with open eyes" : `Yosh in its ${state} state`}</title>
               <defs>
                 <clipPath id={`${id}-crop`}>
                   <rect x={crop.x} y={crop.y} width={crop.width} height={crop.height} />

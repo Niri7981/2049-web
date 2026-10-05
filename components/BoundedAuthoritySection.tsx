@@ -3,7 +3,7 @@
 import { motion, useReducedMotion, useSpring, useTransform } from "motion/react";
 import { useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import Spirit from "@/components/Spirit";
-import { ACTION_LIMIT_CENTS, DAILY_LIMIT_CENTS, dollars, evaluateRequest } from "@/lib/authority";
+import { ACTION_LIMIT_CENTS, DAILY_LIMIT_CENTS, amount, evaluateRequest, testUsdc } from "@/lib/authority";
 
 export default function BoundedAuthoritySection() {
   const slider = useRef<HTMLDivElement>(null);
@@ -51,11 +51,12 @@ export default function BoundedAuthoritySection() {
     <section className="essay-section bounded-section" aria-labelledby="bounded-title">
       <div className="budget-introduction editorial-inset">
         <h2 className="editorial-title" id="bounded-title">A budget,<br />not a wallet.</h2>
-        <p className="editorial-body">Agents do not need unrestricted access to your wallet in order to act. Give them a bounded budget, a precise SpendGrant, and let 2049 enforce the limit.</p>
+        <p className="editorial-body">Agents do not need unrestricted access to your wallet in order to act. Give them a bounded budget, a precise SpendGrant, and let Yosh enforce the limit.</p>
       </div>
+      <p className="budget-context quiet-note editorial-inset">Illustrative boundary · test USDC</p>
       <div className="limit-composition editorial-inset" data-denied={!allowed}>
         <div className="limit-endpoints" aria-hidden="true">
-          <span>0</span><span>{dollars(DAILY_LIMIT_CENTS)}<small>daily authority</small></span>
+          <span>0</span><span>{amount(DAILY_LIMIT_CENTS)}<small>daily authority</small></span>
         </div>
         <div
           ref={slider}
@@ -66,7 +67,7 @@ export default function BoundedAuthoritySection() {
           aria-valuemin={0}
           aria-valuemax={DAILY_LIMIT_CENTS}
           aria-valuenow={requestedCents}
-          aria-valuetext={`${dollars(requestedCents)} requested. ${allowed ? "Within authority." : "Outside authority. Denied."} Per-action limit ${dollars(ACTION_LIMIT_CENTS)}; daily limit ${dollars(DAILY_LIMIT_CENTS)}.`}
+          aria-valuetext={`${testUsdc(requestedCents)} requested. ${allowed ? "Within authority." : "Outside authority. Denied."} Per-transaction limit ${testUsdc(ACTION_LIMIT_CENTS)}; daily limit ${testUsdc(DAILY_LIMIT_CENTS)}.`}
           aria-describedby="limit-status"
           onKeyDown={keyboardRequest}
           onPointerDown={beginDrag}
@@ -79,12 +80,12 @@ export default function BoundedAuthoritySection() {
               <span className={`limit-tick${index % 8 === 0 ? " limit-tick-major" : ""}`} key={index} style={{ left: `${index * 1.25}%` }} />
             ))}
             <span className="zero-stop" />
-            <span className="action-stop"><span>{dollars(ACTION_LIMIT_CENTS)}<small>per-action limit</small></span></span>
+            <span className="action-stop"><span>{amount(ACTION_LIMIT_CENTS)}<small>per-transaction limit</small></span></span>
             <span className="daily-stop" />
           </div>
           <motion.div className="request-marker" aria-hidden="true" style={{ left: reducedMotion ? `${boundedCents}%` : markerLeft }}>
             <span className="request-pointer" />
-            <span className="marker-amount">{dollars(boundedCents)}</span>
+            <span className="marker-amount">{amount(boundedCents)}</span>
             <span className="marker-agent">Codex</span>
           </motion.div>
         </div>
@@ -97,9 +98,10 @@ export default function BoundedAuthoritySection() {
         </motion.div>
         <div className="limit-status" id="limit-status" role="status" aria-atomic="true">
           <span>{allowed ? "within authority" : "outside authority — denied"}</span>
-          {!allowed && <span className="attempted-amount">request {dollars(requestedCents)}</span>}
+          {!allowed && <span className="attempted-amount">request {amount(requestedCents)}</span>}
         </div>
       </div>
+      <p className="accounting-note editorial-inset" id="authority-accounting">Remaining authority is not wallet balance. Paid, Reserved, and Remaining track authority. <a className="text-link" href="#docs">Read the accounting details</a>.</p>
       <p className="budget-principle editorial-inset">The agent can move freely inside the boundary. It cannot move the boundary itself.</p>
     </section>
   );

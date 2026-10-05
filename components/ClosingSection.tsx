@@ -1,16 +1,16 @@
 import Spirit from "@/components/Spirit";
+import { sourceLinks } from "@/lib/links";
 
 export default function ClosingSection() {
   return (
     <footer className="essay-section closing-section" aria-labelledby="closing-title">
       <div className="closing-content editorial-inset">
         <h2 className="closing-statement" id="closing-title">Agents are learning to act.<br />They need boundaries.</h2>
-        <nav className="closing-links" aria-label="2049 resources">
-          <a href="#product">2049</a>
-          <a href="https://github.com/Niri7981/2049-web" target="_blank" rel="noreferrer">GitHub</a>
-          {/* Resource destinations can be supplied without changing the composition. */}
-          <span aria-disabled="true" title="Documentation is forthcoming">Docs</span>
-          <span aria-disabled="true" title="Download is forthcoming">Download</span>
+        <nav className="closing-links" aria-label="Yosh resources">
+          <a href="#top">Yosh</a>
+          <a href={sourceLinks.github} target="_blank" rel="noreferrer">GitHub</a>
+          <a href="#docs">Docs</a>
+          <a href="#get-started">Get started</a>
         </nav>
       </div>
       <div className="closing-boundary" aria-hidden="true" />

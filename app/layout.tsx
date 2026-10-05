@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "2049 — Economic permission for autonomous agents",
+  title: "Yosh — Economic permission for autonomous agents",
   description:
-    "2049 gives autonomous agents bounded economic authority. Act, spend and transact without unrestricted control of your wallet.",
+    "Give agents bounded spending authority without unrestricted wallet control. Yosh checks authority before payment. Local macOS, Codex through MCP, and Solana Devnet test USDC.",
 };
 
 export const viewport: Viewport = {
