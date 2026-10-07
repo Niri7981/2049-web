@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion, useSpring } from "motion/react";
 import { useId, type PointerEvent } from "react";
+import { useLanguage } from "@/components/LanguageProvider";
 
 // Figures from the supplied app design sheet, with no neighboring states.
 // Replace this source with an isolated export when one is available.
@@ -29,6 +30,7 @@ export default function Spirit({
   floating?: boolean;
   interactive?: boolean;
 }) {
+  const { t } = useLanguage();
   const id = useId();
   const reducedMotion = useReducedMotion();
   const spring = { stiffness: 120, damping: 20, mass: 0.7 };
@@ -65,7 +67,7 @@ export default function Spirit({
               role="img"
               aria-labelledby={`${id}-title`}
             >
-              <title id={`${id}-title`}>{state === "idle" ? "Yosh, quietly floating with open eyes" : `Yosh in its ${state} state`}</title>
+              <title id={`${id}-title`}>{t.accessibility.spirit[state]}</title>
               <defs>
                 <clipPath id={`${id}-crop`}>
                   <rect x={crop.x} y={crop.y} width={crop.width} height={crop.height} />

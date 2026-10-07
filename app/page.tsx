@@ -1,3 +1,5 @@
+"use client";
+
 import PermissionSpirit from "@/components/PermissionSpirit";
 import AuthoritySection from "@/components/AuthoritySection";
 import BoundedAuthoritySection from "@/components/BoundedAuthoritySection";
@@ -14,27 +16,27 @@ import SecuritySection from "@/components/SecuritySection";
 import DocsSection from "@/components/DocsSection";
 import RoadmapSection from "@/components/RoadmapSection";
 import FAQSection from "@/components/FAQSection";
+import { LanguageProvider, useLanguage } from "@/components/LanguageProvider";
 
 export default function Home() {
+  return <LanguageProvider><HomeContent /></LanguageProvider>;
+}
+
+function HomeContent() {
+  const { t } = useLanguage();
   return (
     <>
-      <a className="skip-link" href="#content">Skip to content</a>
+      <a className="skip-link" href="#content">{t.accessibility.skip}</a>
       <ScrollRuler />
       <main id="content" tabIndex={-1}>
-        <section className="first-screen" id="top" aria-label="Economic permission for autonomous agents">
+        <section className="first-screen" id="top" aria-label={t.accessibility.hero}>
           <div className="editorial-sheet">
             <SiteNavigation />
             <HeroContents />
 
             <div className="intro-copy" id="concept">
-              <p>
-                Give agents bounded spending authority without handing over
-                unrestricted wallet control.
-              </p>
-              <p>
-                Yosh checks whether a purchase fits the authority you granted
-                before payment can begin.
-              </p>
+              <p>{t.hero.bodyPrimary}</p>
+              <p>{t.hero.bodySecondary}</p>
             </div>
           </div>
           <PermissionSpirit />
