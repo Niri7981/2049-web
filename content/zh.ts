@@ -4,7 +4,7 @@ const zh: typeof en = {
   meta: { title: "Yosh — 面向自主代理的经济权限", faqTitle: "常见问题 — Yosh" },
   accessibility: { skip: "跳转至正文", hero: "面向自主代理的经济权限", back: "Yosh，返回首页", mainNav: "主导航", resources: "Yosh 相关资源", spirit: { idle: "Yosh 睁着眼睛安静地漂浮", focused: "Yosh 正在专注", waiting: "Yosh 正在等待", curious: "Yosh 正在观察", notified: "Yosh 收到了提醒", sleeping: "Yosh 正在休息" } },
   nav: { product: "产品", howItWorks: "工作原理", docs: "文档", roadmap: "路线图", github: "GitHub", getStarted: "开始使用", chapters: "首页章节导航", language: "语言" },
-  hero: { statement: ["面向自主代理的", "经济权限"], bodyPrimary: "在不交出无限制钱包控制权的前提下，为代理授予有边界的支出权限。", bodySecondary: "Yosh 会在支付开始之前，检查这笔购买是否符合你授予的权限。", authority: "在你的权限之内" },
+  hero: { statement: ["面向自主代理的", "经济权限"], bodyPrimary: "在不交出无限制钱包控制权的前提下，为代理授予有边界的支出权限。", bodySecondary: "Yosh 会在支付开始之前，检查这笔购买是否符合你授予的权限。", authority: "在你的权限之内", directDownloadLabel: "直接下载 / macOS", directDownloadLink: "下载适用于 Apple Silicon 的 Yosh v0.1.0 Beta", copyDownloadLink: "复制下载链接", linkCopied: "链接已复制", copyFailed: "复制失败，请点击下载地址" },
   common: { testUsdc: "测试 USDC", request: "请求", within: "在权限之内", outside: "超出权限", approved: "已批准", denied: "已拒绝" },
   howItWorks: {
     title: ["请求本身", "不等于权限。"],

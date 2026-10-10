@@ -184,6 +184,15 @@ body::before {
 .intro-download-meta span + span { padding-left: 18px; border-left: 1px solid var(--rule-strong); }
 .intro-download .intro-download-caveat { margin-top: 14px; color: var(--text-secondary); font-size: 12px; font-weight: 400; line-height: 1.5; }
 .intro-explanation p + p { margin-top: 22px; }
+.direct-download { grid-column: 1 / -1; min-width: 0; margin-top: 28px; }
+.direct-download-label { display: block; margin-bottom: 11px; color: var(--text-muted); font-family: var(--font-mono); font-size: 11px; font-weight: 400; line-height: 1.4; letter-spacing: .11em; }
+.direct-download-row { display: grid; grid-template-columns: minmax(0, 1fr) 48px; min-height: 48px; border: 1px solid var(--rule-strong); }
+.direct-download-url { min-width: 0; overflow: hidden; padding: 14px 16px; color: var(--text-body); font-family: var(--font-mono); font-size: 11px; font-weight: 400; line-height: 1.6; letter-spacing: 0; text-decoration: none; text-overflow: ellipsis; white-space: nowrap; }
+.direct-download-url:hover { color: var(--text-primary); }
+.direct-download-url:focus-visible, .direct-download-copy:focus-visible { outline: 1px solid var(--signal); outline-offset: 3px; }
+.direct-download-copy { display: grid; place-items: center; border: 0; border-left: 1px solid var(--rule); background: transparent; color: var(--text-secondary); font-family: var(--font-sans); font-size: 18px; cursor: pointer; }
+.direct-download-copy:hover { color: var(--text-primary); }
+.direct-download-copy svg { width: 19px; height: 19px; }
 .skip-link {
   position: fixed;
   top: 12px;
@@ -215,7 +224,7 @@ body::before {
 
 @media (max-width: 700px) {
   :root { --sheet-gutter: 22px; --boundary-y: 44%; --ruler-left: 1.2%; --spirit-width: 72px; --spirit-height: 100px; }
-  .first-screen { min-height: 780px; }
+  .first-screen { min-height: 920px; }
   .editorial-sheet { inset-block: 16px; }
   .sheet-mark { top: 25px; left: 25px; gap: 10px; font-size: 12px; }
   .mark-dot { width: 7px; height: 7px; }
@@ -233,10 +242,11 @@ body::before {
   .intro-download-meta span + span { padding-left: 0; border-left: 0; }
   .intro-explanation p { max-width: 310px; }
   .intro-explanation p + p { margin-left: 0; }
+  .direct-download { margin-top: 8px; }
 }
 
 @media (max-width: 480px) {
-  .first-screen { min-height: 920px; }
+  .first-screen { min-height: 1020px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

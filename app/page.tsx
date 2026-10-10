@@ -18,6 +18,7 @@ import RoadmapSection from "@/components/RoadmapSection";
 import FAQPreviewSection from "@/components/FAQPreviewSection";
 import { LanguageProvider, useLanguage } from "@/components/LanguageProvider";
 import { sourceLinks } from "@/lib/links";
+import DirectDownloadBar from "@/components/DirectDownloadBar";
 
 export default function Home() {
   return <LanguageProvider><HomeContent /></LanguageProvider>;
@@ -48,6 +49,7 @@ function HomeContent() {
                 <p>{t.hero.bodySecondary}</p>
                 <p>{t.hero.bodyPrimary}</p>
               </div>
+              <DirectDownloadBar />
             </div>
           </div>
           <PermissionSpirit />
