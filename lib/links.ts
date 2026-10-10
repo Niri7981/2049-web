@@ -8,6 +8,8 @@ export const primaryChapters = [
 // Repository identifiers are internal names; the public product is Yosh.
 export const sourceLinks = {
   github: "https://github.com/Niri7981/2049",
+  githubProfile: "https://github.com/Niri7981",
+  xProfile: "https://x.com/nirimyq",
   installation: "https://github.com/Niri7981/2049/blob/main/README.md",
   mcp: "https://github.com/Niri7981/2049/blob/main/docs/architecture/mcp-integration.md",
   architecture: "https://github.com/Niri7981/2049/tree/main/docs",
