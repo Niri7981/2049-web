@@ -13,7 +13,7 @@ export default function DocsSection() {
           <h2 className="editorial-title" id="docs-title">{copy.title[0]}<br />{copy.title[1]}</h2>
           <p className="editorial-body">{copy.body}</p>
           <p className="quiet-note docs-requirements">{copy.requirements[0]}<br />{copy.requirements[1]}<br />{copy.requirements[2]}</p>
-          <a className="text-link docs-installation" href={sourceLinks.installation} target="_blank" rel="noreferrer">{copy.installation}</a>
+          <a className="text-link docs-installation" href={sourceLinks.download}>{copy.installation}</a>
         </div>
         <ul className="docs-links">
           {copy.guides.map((guide, index) => <li key={index}><a href={guideHrefs[index]} target={guideHrefs[index].startsWith("https:") ? "_blank" : undefined} rel={guideHrefs[index].startsWith("https:") ? "noreferrer" : undefined}><span>{guide.title}</span><span className="link-direction" aria-hidden="true">{guideHrefs[index].startsWith("https:") ? "↗" : "→"}</span><small>{guide.description}</small></a></li>)}

@@ -14,7 +14,7 @@ export default function ControlSection() {
         </div>
         <div className="control-media">
           <ProductVideo />
-          <ol className="future-clips" aria-label={copy.clipsLabel}>{copy.clips.map((clip) => <li key={clip}>{clip}</li>)}</ol>
+          <ol className="demo-sequence" aria-label={copy.clipsLabel}>{copy.clips.map((clip) => <li key={clip}>{clip}</li>)}</ol>
           <div className="control-spirit"><Spirit state="notified" floating={false} interactive={false} /></div>
         </div>
       </div>

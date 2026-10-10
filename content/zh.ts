@@ -1,7 +1,7 @@
 import type en from "./en";
 
 const zh: typeof en = {
-  meta: { title: "Yosh — 面向自主代理的经济权限" },
+  meta: { title: "Yosh — 面向自主代理的经济权限", faqTitle: "常见问题 — Yosh" },
   accessibility: { skip: "跳转至正文", hero: "面向自主代理的经济权限", back: "Yosh，返回首页", mainNav: "主导航", resources: "Yosh 相关资源", spirit: { idle: "Yosh 睁着眼睛安静地漂浮", focused: "Yosh 正在专注", waiting: "Yosh 正在等待", curious: "Yosh 正在观察", notified: "Yosh 收到了提醒", sleeping: "Yosh 正在休息" } },
   nav: { product: "产品", howItWorks: "工作原理", docs: "文档", roadmap: "路线图", github: "GitHub", getStarted: "开始使用", chapters: "首页章节导航", language: "语言" },
   hero: { statement: ["面向自主代理的", "经济权限"], bodyPrimary: "在不交出无限制钱包控制权的前提下，为代理授予有边界的支出权限。", bodySecondary: "Yosh 会在支付开始之前，检查这笔购买是否符合你授予的权限。", authority: "在你的权限之内" },
@@ -12,7 +12,7 @@ const zh: typeof en = {
       { title: "身份", copy: "每条经过认证的连接都对应一个持久的本地成员。即使凭证更换，购买记录仍归属于该成员。" },
       { title: "权限", copy: "SpendGrant 规定总额度、单笔上限和有效期。每个成员也受到共享每日额度的约束。" },
       { title: "判定", copy: "Yosh 验证请求和报价，再检查 SpendGrant、共享每日额度、暂停状态及未结清付款。越界请求会被拒绝。" },
-      { title: "执行", copy: "明确启用 Devnet 执行后，获批购买才可进入 x402 流程。签名前会再次核验权限和支付条款。" },
+      { title: "执行", copy: "明确启用真实执行后，获批购买才可进入 x402 流程。签名前会再次核验权限和支付条款。" },
       { title: "记录", copy: "判定、支付和交付分别记录，不混为一谈。" },
     ],
     configuration: ["示例配置 · 模拟模式", "此前无支出 · 支付已启用"],
@@ -26,7 +26,7 @@ const zh: typeof en = {
     title: ["给预算，", "不交钱包。"], body: "代理无需获得钱包的无限制访问权，也能完成操作。给它有边界的预算和明确的 SpendGrant，由 Yosh 执行限额。", context: "示例边界 · 测试 USDC", daily: "每日权限", transaction: "单笔上限", slider: "Codex 的请求金额。拖动滑尺或使用方向键，查看权限边界。", requested: "请求金额", sliderWithin: "在权限之内。", sliderOutside: "超出权限，已拒绝。", sliderTransaction: "单笔上限", sliderDaily: "每日上限", denied: "超出权限 — 已拒绝", accounting: "剩余权限不是钱包余额。已支付、已预留和剩余额度分别记录。", accountingLink: "查看额度核算细节", accountingEnd: "。", principle: "代理可以在边界内行动，但不能移动边界。",
   },
   product: {
-    title: ["权限，", "有边界。"], principle: ["一道边界，", "多个成员。"], body: "各成员保有独立的本地身份、授权、连接和购买归属，同时共用每日额度。目前明确支持的宿主集成是通过 MCP 连接的 Codex。", state: ["本地 macOS · Codex 通过 MCP 连接", "Solana Devnet · 测试 USDC", "默认模拟模式"],
+    title: ["权限，", "有边界。"], principle: ["一道边界，", "多个成员。"], body: "各成员保有独立的本地身份、授权、连接和购买归属，同时共用每日额度。目前明确支持的宿主集成是通过 MCP 连接的 Codex。", state: ["本地 macOS · Codex 通过 MCP 连接", "Solana Mainnet · 原生 USDC", "默认模拟模式"],
     controls: [
       { title: "连接", copy: "通过 MCP 连接 Codex。设置中或等待中，不等于近期确实建立了连接。" },
       { title: "SpendGrant", copy: "设置总额度、单笔上限和有效期；可以替换或撤销所选成员的授权。" },
@@ -36,18 +36,18 @@ const zh: typeof en = {
     ],
     note: "目前尚未提供其他明确支持的宿主集成。",
   },
-  control: { title: ["保持控制，", "无需暴露。"], body: "设置或撤销成员的 SpendGrant，调整每日额度，或暂停新支付。已提交的交易仍需完成状态核对。", clipsLabel: "计划中的产品演示", clips: ["连接 Codex", "授予有边界的权限", "批准或拒绝"], videoCaption: "连接 Codex / 产品演示", videoAria: "Yosh 权限控制演示", videoUnsupported: "你的浏览器无法播放此视频。", videoPlaceholder: "即将提供的 Yosh 产品演示视频占位图", videoType: "产品 / 控制", videoForthcoming: "演示录制中" },
-  getStarted: { title: ["从一道边界", "开始。"], body: "先在本地从源码安装，再发起第一笔受限请求。", guide: "查看运行要求与安装指南", steps: [
-    { title: "安装并打开 Yosh", copy: "从源码构建当前的 macOS 应用并打开。" },
-    { title: "连接 Codex", copy: "在成员页面通过 MCP 连接。打开 Codex 对话或重新加载 MCP，等待实际连接完成。" },
-    { title: "设置权限", copy: "设置共享每日上限及 SpendGrant 的总额度、单笔上限和有效期。修改授权后重新加载 MCP。" },
-    { title: "发起请求", copy: "请求已登记的演示资源。默认使用模拟模式；Devnet 支付需明确配置，并向测试钱包注入资金。" },
-    { title: "查看结果", copy: "先看权限判定，再分别查看支付和交付。" },
-  ], sourceNote: "请从源码开始使用。独立的公开下载版本尚未提供。", repositoryInstallation: "仓库安装说明" },
+  control: { title: ["保持控制，", "无需暴露。"], body: "设置或撤销成员的 SpendGrant，调整每日额度，或暂停新支付。已提交的交易仍需完成状态核对。", clipsLabel: "产品演示流程", clips: ["创建 SpendGrant", "代理请求购买", "支付并交付"], videoCaption: "Yosh / 产品演示", videoAria: "Yosh 产品演示：设置 SpendGrant、代理购买与支付交付", videoUnsupported: "你的浏览器无法播放此视频。", videoType: "产品 / 控制" },
+  getStarted: { title: ["从一道边界", "开始。"], body: "下载 macOS Beta，再为代理设定有边界的权限。", guide: "查看运行要求与文档", downloadLabel: "下载 macOS 版", downloadMeta: "v0.1.0 Beta · Apple Silicon · macOS 15+", downloadVersion: "v0.1.0 Beta", downloadPlatform: "Apple Silicon · macOS 15+", downloadCaveat: "尚未经过 Apple 公证", steps: [
+    { title: "下载 DMG", copy: "使用此处链接下载 Yosh v0.1.0 Beta 官方安装镜像。" },
+    { title: "移入应用程序", copy: "打开 DMG，将 Yosh 拖入“应用程序”，然后推出 DMG。" },
+    { title: "尝试打开 Yosh", copy: "从“应用程序”中启动 Yosh。" },
+    { title: "若 macOS 阻止首次打开", copy: "前往“系统设置”→“隐私与安全性”→“仍要打开”（Open Anyway），然后确认打开 Yosh。" },
+    { title: "设定第一道边界", copy: "通过 MCP 连接 Codex，并先为该成员设置有边界的 SpendGrant，再发起请求。" },
+  ], notarization: "此 Beta 尚未经过 Apple 公证。请仅在信任本次发布时批准打开 Yosh；不要全局关闭 macOS 安全保护。", firstLaunch: "在干净 Mac 上安装，以及从互联网下载后的首次启动验收，尚未完成。", releaseNotes: "校验和与完整发布说明 ↗" },
   security: { title: ["权限控制", "留在本地。"], body: "代理可以请求已登记的资源。钱包密钥保存在 macOS Keychain；本地后端负责验证、预留额度、签名和购买状态。", link: "了解边界", agentCannot: "通过 MCP，代理不能", boundaries: ["提交任意交易。", "自行选择任意支付条款。", "导出钱包密钥。", "修改支出控制。"], note: "这些是本地实现的边界，并非独立安全审计，也不能防范同一设备上所有受损进程。" },
   activity: { title: ["每次行动，", "都有记录。"], body: "Yosh 记录请求者、资源、金额、判定、执行模式、支付状态、交付状态和可用的交易信息。", region: "示例购买记录", caption: "示例记录 · 模拟模式 · 测试 USDC", headers: ["请求", "判定", "支付", "交付"], approved: "已批准", denied: "已拒绝", notStarted: "未开始", notDelivered: "未交付", note: "这些示例没有交易：模拟模式不会发起支付。" },
-  permissionLayer: { title: ["先有权限，", "再谈支付。"], body: "Yosh 将权限判定与支付执行分开。当前购买通过 Solana Devnet 上的 x402 完成；尚未实现其他支付通道。", diagram: "代理请求先经过 Yosh 经济权限层，再到达支付、钱包或 x402。", agent: "代理", layer: "经济权限层", payment: "支付 / 钱包 / x402" },
-  docs: { title: ["读懂边界。", "查看源码。"], body: "从安装和 Codex 连接开始，再了解权限、额度核算和执行过程。", requirements: ["当前本地构建要求", "macOS 15+ · Node.js 24.5+", "Xcode 构建工具"], installation: "仓库安装指南 ↗", guides: [
+  permissionLayer: { title: ["先有权限，", "再谈支付。"], body: "Yosh 将权限判定与支付执行分开。当前 Beta 通过 Solana Mainnet 上的 x402 V2 使用原生 USDC；尚未实现其他支付通道。", diagram: "代理请求先经过 Yosh 经济权限层，再到达支付、钱包或 x402。", agent: "代理", layer: "经济权限层", payment: "支付 / 钱包 / x402" },
+  docs: { title: ["读懂边界。", "查看源码。"], body: "从安装和 Codex 连接开始，再了解权限、额度核算和执行过程。", requirements: ["Yosh v0.1.0 Beta", "Apple Silicon（arm64）· macOS 15+", "运行时无需 Node.js 或源码仓库"], installation: "下载 macOS 版 ↗", guides: [
     { title: "开始使用", description: "安装 → 连接 → 设置权限 → 请求 → 查看结果" },
     { title: "连接 Codex", description: "连接设置、会话状态与重新连接" },
     { title: "SpendGrant", description: "总额度、单笔上限与有效期" },
@@ -55,9 +55,9 @@ const zh: typeof en = {
     { title: "安全模型", description: "代理可以请求什么，什么留在本地" },
     { title: "架构", description: "权限、额度核算与购买流程" },
     { title: "GitHub", description: "查看产品源码" },
-  ], note: "仓库中的部分指南仍使用旧名称和旧工具示例。如有差异，请以当前 Yosh 源码为准。目前没有独立托管的文档站点或安装包。" },
-  roadmap: { title: ["不止于", "支出。"], body: "今天，Yosh 为已登记的演示资源管理有边界的支出。我们也在探索如何将身份、权限和执行扩展到更广泛的经济行为。", boundary: "目前尚不支持 RWA。", planned: "计划中", exploring: "探索中", plannedItems: ["在代理对话中提供可核验的购买确认", "持久且有边界的交付重试", "第三方主网购买路径", "独立应用分发"], exploringItems: ["更广泛的经济行为", "更细致的权限策略", "更多代理集成", "代币化资产与 RWA 权限"] },
-  faq: { title: ["几个问题，", "说清楚。"], body: "当前能力、实际限制，以及权限与支付之间的区别。", sourceLink: "Yosh 源码仓库", questions: [
+  ], note: "仓库中的部分指南仍使用旧名称和旧工具示例。如有差异，请以当前 Yosh 发布说明为准。上方提供官方 macOS Beta 下载。" },
+  roadmap: { title: ["不止于", "支出。"], body: "今天，Yosh 为已登记的演示资源管理有边界的支出。我们也在探索如何将身份、权限和执行扩展到更广泛的经济行为。", boundary: "目前尚不支持 RWA。", planned: "计划中", exploring: "探索中", plannedItems: ["在代理对话中提供可核验的购买确认", "持久且有边界的交付重试", "第三方主网购买路径"], exploringItems: ["更广泛的经济行为", "更细致的权限策略", "更多代理集成", "代币化资产与 RWA 权限"] },
+  faq: { title: ["几个问题，", "说清楚。"], body: "当前能力、实际限制，以及权限与支付之间的区别。", indexLabel: "常见问题", viewAll: "查看全部问题", backHome: "返回首页", sourceLink: "Yosh 源码仓库", questions: [
     { question: "Yosh 是什么？", answer: "Yosh 是面向代理的经济权限层。目前它作为本地 macOS 系统运行，让代理在受限权限内购买已登记的演示资源。" },
     { question: "Yosh 是钱包吗？", answer: "它包含一个专用的本地支出钱包，但核心作用是通过身份、SpendGrant、限额、暂停状态和购买记录，控制谁能使用这个钱包。" },
     { question: "代理会拿到我的私钥吗？", answer: "不会。钱包密钥保存在 macOS Keychain，由本地后端签名器使用。MCP 不会暴露密钥，也没有导出工具。这不能防范同一设备上所有受损进程。" },
@@ -70,7 +70,7 @@ const zh: typeof en = {
     { question: "已批准就代表完成了吗？", answer: "不是。批准、支付确认和交付分别记录。默认模拟请求即使获批，也不会发生支付。" },
     { question: "会记录哪些信息？", answer: "成员归属、请求与资源、金额、执行模式、判定及原因、支付状态、交付状态，以及可用的收据或交易信息。" },
     { question: "关闭或锁定应用会暂停支付吗？", answer: "不会。关闭窗口后端仍会运行；原生 PIN 锁只保护界面访问。要暂停新支付，请使用“支付”控制。正常退出会安全停止服务。" },
-    { question: "支持哪个网络？", answer: "产品购买流程使用 Solana Devnet 测试 USDC。默认模拟模式；真实 Devnet 执行需要明确配置并为测试钱包注资。主网已禁用。" },
+    { question: "支持哪个网络？", answer: "本次 Beta 支持通过 x402 V2 在 Solana Mainnet 上用原生 USDC 购买受支持的资源。它不提供任意钱包访问或签名能力。" },
     { question: "支持 RWA 吗？", answer: "不支持。代币化资产和更广泛的投资权限仍处于探索阶段。" },
     { question: "在哪里查看源码？", answer: "访问{source}，先阅读 README 和 MCP 指南。部分已发布示例仍描述旧版本。" },
     { question: "如果支付状态未知怎么办？", answer: "核对原支付期间，原始记录和预留额度会保留。恢复流程不会创建替代支付，也不能保证每个外部 API 都会交付或退款。" },

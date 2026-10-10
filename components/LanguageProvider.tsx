@@ -27,13 +27,13 @@ function subscribe(callback: () => void) {
 type LanguageContextValue = { locale: Locale; t: SiteContent; setLocale: (locale: Locale) => void };
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
+export function LanguageProvider({ children, page = "home" }: { children: ReactNode; page?: "home" | "faq" }) {
   const locale = useSyncExternalStore(subscribe, getLocale, () => "en" as Locale);
   const position = useRef<{ section: Element | null; top: number; scrollY: number } | null>(null);
 
   useLayoutEffect(() => {
     document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
-    document.title = content[locale].meta.title;
+    document.title = page === "faq" ? content[locale].meta.faqTitle : content[locale].meta.title;
     if (!position.current) return;
     const { section, top, scrollY } = position.current;
     position.current = null;
@@ -42,7 +42,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.style.scrollBehavior = "auto";
     window.scrollTo(0, scrollY + delta);
     document.documentElement.style.scrollBehavior = previous;
-  }, [locale]);
+  }, [locale, page]);
 
   function setLocale(next: Locale) {
     if (next === locale) return;

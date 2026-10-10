@@ -15,8 +15,9 @@ import GetStartedSection from "@/components/GetStartedSection";
 import SecuritySection from "@/components/SecuritySection";
 import DocsSection from "@/components/DocsSection";
 import RoadmapSection from "@/components/RoadmapSection";
-import FAQSection from "@/components/FAQSection";
+import FAQPreviewSection from "@/components/FAQPreviewSection";
 import { LanguageProvider, useLanguage } from "@/components/LanguageProvider";
+import { sourceLinks } from "@/lib/links";
 
 export default function Home() {
   return <LanguageProvider><HomeContent /></LanguageProvider>;
@@ -35,8 +36,18 @@ function HomeContent() {
             <HeroContents />
 
             <div className="intro-copy" id="concept">
-              <p>{t.hero.bodyPrimary}</p>
-              <p>{t.hero.bodySecondary}</p>
+              <div className="intro-download">
+                <a className="intro-download-button" href={sourceLinks.download}><span aria-hidden="true">↓</span>{t.getStarted.downloadLabel}</a>
+                <div className="intro-download-meta">
+                  <span>{t.getStarted.downloadVersion}</span>
+                  <span>{t.getStarted.downloadPlatform}</span>
+                </div>
+                <p className="intro-download-caveat">{t.getStarted.downloadCaveat}</p>
+              </div>
+              <div className="intro-explanation">
+                <p>{t.hero.bodySecondary}</p>
+                <p>{t.hero.bodyPrimary}</p>
+              </div>
             </div>
           </div>
           <PermissionSpirit />
@@ -52,7 +63,7 @@ function HomeContent() {
           <PermissionLayerSection />
           <DocsSection />
           <RoadmapSection />
-          <FAQSection />
+          <FAQPreviewSection />
           <ClosingSection />
         </div>
       </main>

@@ -1,31 +1,14 @@
 import { useLanguage } from "@/components/LanguageProvider";
 
-type ProductVideoProps = {
-  src?: string;
-  poster?: string;
-  caption?: string;
-};
-
-// Set src="/videos/control.mp4" when the supplied product video is placed
-// in public/videos. Until then, this is a static placeholder with no fake playback.
-export default function ProductVideo({ src, poster, caption }: ProductVideoProps) {
+export default function ProductVideo() {
   const { t } = useLanguage();
   const copy = t.control;
   return (
     <figure className="product-media">
-      {src ? (
-        <video className="product-video" src={src} poster={poster} controls playsInline preload="metadata" aria-label={copy.videoAria}>
-          {copy.videoUnsupported}
-        </video>
-      ) : (
-        <div className="video-placeholder" role="img" aria-label={copy.videoPlaceholder}>
-          <svg className="video-play-symbol" viewBox="0 0 64 64" aria-hidden="true">
-            <circle cx="32" cy="32" r="30" />
-            <path d="M27 23 42 32 27 41Z" />
-          </svg>
-        </div>
-      )}
-      <figcaption className="media-caption"><span>{caption ?? copy.videoCaption}</span><span>{src ? copy.videoType : copy.videoForthcoming}</span></figcaption>
+      <video className="product-video" src="/videos/yosh-demo-v2-synced.mp4" poster="/videos/yosh-demo-v2-poster.jpg" controls playsInline preload="metadata" aria-label={copy.videoAria}>
+        {copy.videoUnsupported}
+      </video>
+      <figcaption className="media-caption"><span>{copy.videoCaption}</span><span>{copy.videoType}</span></figcaption>
     </figure>
   );
 }
