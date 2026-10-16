@@ -3,6 +3,7 @@
 import Link from "next/link";
 import FAQSection from "@/components/FAQSection";
 import LanguageSwitch from "@/components/LanguageSwitch";
+import BrandGhost from "@/components/BrandGhost";
 import { LanguageProvider, useLanguage } from "@/components/LanguageProvider";
 
 export default function FAQPage() {
@@ -17,7 +18,7 @@ function FAQPageContent() {
       <main className="faq-page" id="content" tabIndex={-1}>
         <div className="faq-page-sheet">
           <header className="faq-page-header">
-            <Link className="sheet-mark" href="/" aria-label={t.accessibility.back}><span className="mark-dot" aria-hidden="true" /><span>Yosh</span></Link>
+            <Link className="sheet-mark" href="/" aria-label={t.accessibility.back}><BrandGhost /><span>Yosh</span></Link>
             <div className="faq-page-actions">
               <Link className="faq-page-back" href="/">← {t.faq.backHome}</Link>
               <LanguageSwitch />

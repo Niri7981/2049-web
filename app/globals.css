@@ -98,7 +98,7 @@ body::before {
   letter-spacing: .025em;
   animation: quiet-appear 700ms ease-out both;
 }
-.mark-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--text-secondary); }
+.mark-ghost { display: block; width: 20px; height: 22px; flex-shrink: 0; }
 
 .permission-heading {
   position: absolute;
@@ -232,7 +232,7 @@ body::before {
   .first-screen { min-height: 920px; }
   .editorial-sheet { inset-block: 16px; }
   .sheet-mark { top: 25px; left: 25px; gap: 10px; font-size: 12px; }
-  .mark-dot { width: 7px; height: 7px; }
+  .mark-ghost { width: 18px; height: 20px; }
   .permission-heading { top: 18%; left: 10%; font-size: clamp(21px, 5vw, 26px); line-height: 1.06; }
   .spirit-position { left: 79%; top: calc(var(--boundary-y) - 47px); }
   .authority-caption { left: 50%; top: 115px; transform: translateX(-50%); font-size: 12px; }
