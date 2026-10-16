@@ -1,16 +1,21 @@
-import { primaryChapters, sourceLinks } from "@/lib/links";
+import { sourceLinks } from "@/lib/links";
 import { useLanguage } from "@/components/LanguageProvider";
 import LanguageSwitch from "@/components/LanguageSwitch";
 import BrandGhost from "@/components/BrandGhost";
 
 export default function SiteNavigation() {
   const { locale, t } = useLanguage();
-  const chapterLabels = [t.nav.product, t.nav.howItWorks, t.nav.docs, t.nav.roadmap];
+  const navigation = [
+    { href: "#product", label: t.nav.product },
+    { href: "#how-it-works", label: t.nav.howItWorks },
+    { href: "/prototype/index.html", label: locale === "zh" ? "试用原型" : "Try prototype", prototype: true },
+    { href: "#docs", label: t.nav.docs },
+  ];
   return (
     <header className="site-header">
       <a className="sheet-mark" href="#top" aria-label={t.accessibility.back}><BrandGhost /><span>Yosh</span></a>
       <nav className="site-navigation" aria-label={t.accessibility.mainNav}>
-        {primaryChapters.map((chapter, index) => <a className="header-chapter-link" href={chapter.href} key={chapter.href}>{chapterLabels[index]}</a>)}
+        {navigation.map((item) => <a className={item.prototype ? "header-prototype-link" : item.href === "#how-it-works" ? "header-how-link" : "header-chapter-link"} href={item.href} key={item.href}>{item.label}</a>)}
         <a href={sourceLinks.github} target="_blank" rel="noreferrer">{t.nav.github}</a>
         <div className="header-language-social">
           <LanguageSwitch />

@@ -1,6 +1,7 @@
 "use client";
 
 import PermissionSpirit from "@/components/PermissionSpirit";
+import PurchaseFlowSection from "@/components/PurchaseFlowSection";
 import AuthoritySection from "@/components/AuthoritySection";
 import BoundedAuthoritySection from "@/components/BoundedAuthoritySection";
 import ScrollRuler from "@/components/ScrollRuler";
@@ -55,6 +56,7 @@ function HomeContent() {
           <PermissionSpirit />
         </section>
         <div className="continuation-sheet">
+          <PurchaseFlowSection />
           <AuthoritySection />
           <BoundedAuthoritySection />
           <MembersSection />

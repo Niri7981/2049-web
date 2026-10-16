@@ -49,7 +49,7 @@ export default function AuthoritySection() {
   }, [inView, evaluate, reducedMotion]);
 
   return (
-    <section className="essay-section authority-section" id="how-it-works" aria-labelledby="authority-title">
+    <section className="essay-section authority-section" id="policy-check" aria-labelledby="authority-title">
       <div className="section-introduction editorial-inset">
         <h2 className="editorial-title" id="authority-title">{copy.title[0]}<br />{copy.title[1]}</h2>
       </div>
